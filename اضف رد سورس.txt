@@ -1,0 +1,144 @@
+if text == "تفعيل ردود السورس" or text == "تفعيل ردود سورس" or text == "تفعيل الردود السورس" then
+if not msg.Creator then
+return send(msg_chat_id,msg_id,'\n* ✧ عذرآ الامر يخص〘 '..Controller_Num(5)..' 〙*',"md",true)  
+end
+if ChannelJoinch(msg) == false then
+local reply_markup = bot.replyMarkup{type = 'inline',data = {{{text = Redis:get(Fast..'Chat:Channel:Join:Name'..msg.chat_id), url = 't.me/'..Redis:get(Fast..'Chat:Channel:Join'..msg.chat_id)}, },}}
+return send(msg.chat_id,msg.id,'*\n ✧ عليك الاشتراك في قناة البوت لأستخدام الاوامر*',"md",false, false, false, false, reply_markup)
+end
+if ChannelJoin(msg) == false then
+local reply_markup = bot.replyMarkup{type = 'inline',data = {{{text = Redis:get(Fast..'Channel:Join:Name'), url = 't.me/'..Redis:get(Fast..'Channel:Join')}, },}}
+return send(msg.chat_id,msg.id,'*\n ✧ عليك الاشتراك في قناة البوت لأستخدام الاوامر*',"md",false, false, false, false, reply_markup)
+end
+Redis:set(Fast.."Reply:Source"..msg_chat_id,true) 
+return send(msg_chat_id,msg_id,"* ✧ تم تفعيل ردود السورس *","md",true)
+end
+if text == "تعطيل ردود السورس" or text == "تعطيل ردود سورس" or text == "تعطيل الردود السورس" then
+if not msg.Creator then
+return send(msg_chat_id,msg_id,'\n* ✧ عذرآ الامر يخص〘 '..Controller_Num(5)..' 〙*',"md",true)  
+end
+if ChannelJoinch(msg) == false then
+local reply_markup = bot.replyMarkup{type = 'inline',data = {{{text = Redis:get(Fast..'Chat:Channel:Join:Name'..msg.chat_id), url = 't.me/'..Redis:get(Fast..'Chat:Channel:Join'..msg.chat_id)}, },}}
+return send(msg.chat_id,msg.id,'*\n ✧ عليك الاشتراك في قناة البوت لأستخدام الاوامر*',"md",false, false, false, false, reply_markup)
+end
+if ChannelJoin(msg) == false then
+local reply_markup = bot.replyMarkup{type = 'inline',data = {{{text = Redis:get(Fast..'Channel:Join:Name'), url = 't.me/'..Redis:get(Fast..'Channel:Join')}, },}}
+return send(msg.chat_id,msg.id,'*\n ✧ عليك الاشتراك في قناة البوت لأستخدام الاوامر*',"md",false, false, false, false, reply_markup)
+end
+Redis:del(Fast.."Reply:Source"..msg_chat_id) 
+return send(msg_chat_id,msg_id,"* ✧ تم تعطيل ردود السورس *","md",true)
+end
+if text == "اضف رد سورس" or text == "✧ اضف رد سورس" then 
+if not msg.Devss then 
+return send(msg_chat_id,msg_id,'\n* ✧ عذرآ الامر يخص〘 '..Controller_Num(2)..' 〙*',"md",true)  
+end
+if ChannelJoinch(msg) == false then
+local reply_markup = bot.replyMarkup{type = 'inline',data = {{{text = Redis:get(Fast..'Chat:Channel:Join:Name'..msg.chat_id), url = 't.me/'..Redis:get(Fast..'Chat:Channel:Join'..msg.chat_id)}, },}}
+return send(msg.chat_id,msg.id,'*\n ✧ عليك الاشتراك في قناة البوت لأستخدام الاوامر*',"md",false, false, false, false, reply_markup)
+end
+if ChannelJoin(msg) == false then
+local reply_markup = bot.replyMarkup{type = 'inline',data = {{{text = Redis:get(Fast..'Channel:Join:Name'), url = 't.me/'..Redis:get(Fast..'Channel:Join')}, },}}
+return send(msg.chat_id,msg.id,'*\n ✧ عليك الاشتراك في قناة البوت لأستخدام الاوامر*',"md",false, false, false, false, reply_markup)
+end
+Redis:set(Fast.."reply:on"..msg.sender_id.user_id..":"..msg_chat_id,true)
+local reply_markup = bot.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = '• الغاء الامر •', data =msg.sender_id.user_id..'/cancelamr'}
+},
+}
+}
+return send(msg_chat_id,msg_id,"*ارسل الان رد السورس التي تريد اضافته ...*", 'md', false, false, false, false, reply_markup)
+end
+if text == "مسح رد سورس" or text == "✧ مسح رد سورس" or text == "حذف رد سورس" then 
+if not msg.Devss then 
+return send(msg_chat_id,msg_id,'\n* ✧ عذرآ الامر يخص〘 '..Controller_Num(2)..' 〙*',"md",true)  
+end
+if ChannelJoinch(msg) == false then
+local reply_markup = bot.replyMarkup{type = 'inline',data = {{{text = Redis:get(Fast..'Chat:Channel:Join:Name'..msg.chat_id), url = 't.me/'..Redis:get(Fast..'Chat:Channel:Join'..msg.chat_id)}, },}}
+return send(msg.chat_id,msg.id,'*\n ✧ عليك الاشتراك في قناة البوت لأستخدام الاوامر*',"md",false, false, false, false, reply_markup)
+end
+if ChannelJoin(msg) == false then
+local reply_markup = bot.replyMarkup{type = 'inline',data = {{{text = Redis:get(Fast..'Channel:Join:Name'), url = 't.me/'..Redis:get(Fast..'Channel:Join')}, },}}
+return send(msg.chat_id,msg.id,'*\n ✧ عليك الاشتراك في قناة البوت لأستخدام الاوامر*',"md",false, false, false, false, reply_markup)
+end
+Redis:set(Fast.."reply:of"..msg.sender_id.user_id..":"..msg_chat_id,true)
+local reply_markup = bot.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = '• الغاء الامر •', data =msg.sender_id.user_id..'/cancelamr'}
+},
+}
+}
+return send(msg_chat_id,msg_id,"* ✧ ارسل الان الرد ليتم المسح ... *", 'md', false, false, false, false, reply_markup)
+end
+if text == "مسح ردود السورس" or text == "مسح ردود سورس" or text == "حذف ردود السورس" then 
+if not msg.Devss then 
+return send(msg_chat_id,msg_id,'\n* ✧ عذرآ الامر يخص〘 '..Controller_Num(2)..' 〙*',"md",true)  
+end
+if ChannelJoinch(msg) == false then
+local reply_markup = bot.replyMarkup{type = 'inline',data = {{{text = Redis:get(Fast..'Chat:Channel:Join:Name'..msg.chat_id), url = 't.me/'..Redis:get(Fast..'Chat:Channel:Join'..msg.chat_id)}, },}}
+return send(msg.chat_id,msg.id,'*\n ✧ عليك الاشتراك في قناة البوت لأستخدام الاوامر*',"md",false, false, false, false, reply_markup)
+end
+if ChannelJoin(msg) == false then
+local reply_markup = bot.replyMarkup{type = 'inline',data = {{{text = Redis:get(Fast..'Channel:Join:Name'), url = 't.me/'..Redis:get(Fast..'Channel:Join')}, },}}
+return send(msg.chat_id,msg.id,'*\n ✧ عليك الاشتراك في قناة البوت لأستخدام الاوامر*',"md",false, false, false, false, reply_markup)
+end
+local app = Redis:smembers(Fast.."app:reply:Source")
+for k,v in pairs(app) do
+Redis:del(Fast.."Add:reply:Source:Gif"..v)   
+Redis:del(Fast.."Add:reply:Source:vico"..v)   
+Redis:del(Fast.."Add:reply:Source:stekr"..v)     
+Redis:del(Fast.."Add:reply:Source:Text"..v)   
+Redis:del(Fast.."Add:reply:Source:Photo"..v)
+Redis:del(Fast.."Add:reply:Source:Video"..v)
+Redis:del(Fast.."Add:reply:Source:File"..v)
+Redis:del(Fast.."Add:reply:Source:Audio"..v)
+Redis:del(Fast.."Add:reply:Source:video_note"..v)
+Redis:del(Fast.."app:reply:Source")
+end
+return send(msg_chat_id,msg_id,"* ✧ تم مسح "..#app.." رد سورس *","md",true)  
+end
+if text == "ردود السورس" or text == "ردود سورس" then 
+if not msg.Devss then 
+return send(msg_chat_id,msg_id,'\n* ✧ عذرآ الامر يخص〘 '..Controller_Num(2)..' 〙*',"md",true)  
+end
+if ChannelJoinch(msg) == false then
+local reply_markup = bot.replyMarkup{type = 'inline',data = {{{text = Redis:get(Fast..'Chat:Channel:Join:Name'..msg.chat_id), url = 't.me/'..Redis:get(Fast..'Chat:Channel:Join'..msg.chat_id)}, },}}
+return send(msg.chat_id,msg.id,'*\n ✧ عليك الاشتراك في قناة البوت لأستخدام الاوامر*',"md",false, false, false, false, reply_markup)
+end
+if ChannelJoin(msg) == false then
+local reply_markup = bot.replyMarkup{type = 'inline',data = {{{text = Redis:get(Fast..'Channel:Join:Name'), url = 't.me/'..Redis:get(Fast..'Channel:Join')}, },}}
+return send(msg.chat_id,msg.id,'*\n ✧ عليك الاشتراك في قناة البوت لأستخدام الاوامر*',"md",false, false, false, false, reply_markup)
+end
+local app = Redis:smembers(Fast.."app:reply:Source")
+text = "\n✧ قائمة ردود السورس ⇧⇩\n• ┉ • ┉ • ┉ • ┉ • ┉ • ┉ •\n"
+for k,v in pairs(app) do
+if Redis:get(Fast.."Add:reply:Source:Gif"..v) then
+db = "متحركه 🎭"
+elseif Redis:get(Fast.."Add:reply:Source:vico"..v) then
+db = "بصمه 📢"
+elseif Redis:get(Fast.."Add:reply:Source:stekr"..v) then
+db = "ملصق 🃏"
+elseif Redis:get(Fast.."Add:reply:Source:Text"..v) then
+db = "رساله ✉"
+elseif Redis:get(Fast.."Add:reply:Source:Photo"..v) then
+db = "صوره 🎇"
+elseif Redis:get(Fast.."Add:reply:Source:Video"..v) then
+db = "فيديو 📹"
+elseif Redis:get(Fast.."Add:reply:Source:File"..v) then
+db = "ملف ✧"
+elseif Redis:get(Fast.."Add:reply:Source:Audio"..v) then
+db = "اغنيه 🎵"
+elseif Redis:get(Fast.."Add:reply:Source:video_note"..v) then
+db = "بصمه فيديو 🎥"
+end
+text = text..""..k.." ->〘 "..v.." 〙✧〘 "..db.." 〙\n"
+end
+if #app == 0 then
+text = " ✧ لم تقم باضافه ردود من قبل"
+end
+return send(msg_chat_id,msg_id,"["..text.."]","md",true)  
+end
